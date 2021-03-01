@@ -1,41 +1,47 @@
 package Song;
 
-import java.lang.UnsupportedOperationException;
-
 public class Bottle {
-    public String verses(int from, int to) {
-        String song = "";
-        for (int i = to; i < from + 1; i++) {
-            int currentNb = from - i;
-            song += verse(currentNb);
-        }
-
-        return song;
+    static String capitalize(String remaining) {
+        return remaining.substring(0,1).toUpperCase() + remaining.substring(1).toLowerCase();
     }
 
-    public String verse(int number) {
-        String res;
+    private int number;
 
-        if(number == 0) {
-            res =
-                    "No more bottles of beer on the wall, no more bottles of beer.\n"
-                    + "Go to the store and buy some more, 99 bottles of beer on the wall.\n";
-        } else if(number == 1) {
-            res =
-                    "1 bottle of beer on the wall, 1 bottle of beer.\n"
-                    + "Take it down and pass it around, no more bottles of beer on the wall.\n";
-        } else if(number == 2) {
-            res =
-                    number + " bottles of beer on the wall, " + number + " bottles of beer.\n"
-                    + "Take one down and pass it around, 1 bottle of beer on the wall.\n";
-        } else if (number > 2 && number < 100) {
-            res =
-                    number + " bottles of beer on the wall, " + number + " bottles of beer.\n"
-                    + "Take one down and pass it around, " + (number - 1) + " bottles of beer on the wall.\n";
+    Bottle(int number) {
+        this.number = number;
+    }
+
+    String containers() {
+        if(this.number == 1) {
+            return "bottle";
         } else {
-            throw new UnsupportedOperationException();
+            return "bottles";
         }
+    }
 
-        return res;
+    String pronoun() {
+        if(this.number == 1) {
+            return "it";
+        } else {
+            return "one";
+        }
+    }
+
+    String remaining() {
+        if(this.number == 0) {
+            return "no more";
+        } else if(this.number == -1){
+            return "99";
+        } else {
+            return String.valueOf(this.number);
+        }
+    }
+
+    String action() {
+        if(this.number == 0) {
+            return "Go to the store and buy some more,";
+        } else {
+            return "Take " + pronoun() + " down and pass it around,";
+        }
     }
 }
