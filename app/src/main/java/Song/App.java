@@ -22,8 +22,8 @@ public class App {
     }
 
     public static String verse(int number) {
-        Bottle bottle = new Bottle(number);
-        Bottle successor = new Bottle(number - 1);
+        Bottle bottle = Bottle.factory(number);
+        Bottle successor = Bottle.factory(number - 1);
 
         if (number >= 0  && number < 100) {
             return

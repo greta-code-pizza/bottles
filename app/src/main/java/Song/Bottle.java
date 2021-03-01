@@ -1,6 +1,14 @@
 package Song;
 
 public class Bottle {
+    static Bottle factory(int number) {
+        if(number == 0) {
+           return new ZeroBottle();
+        } else {
+            return new Bottle(number);
+        }
+    }
+
     static String capitalize(String remaining) {
         return remaining.substring(0,1).toUpperCase() + remaining.substring(1).toLowerCase();
     }
@@ -28,9 +36,7 @@ public class Bottle {
     }
 
     String remaining() {
-        if(this.number == 0) {
-            return "no more";
-        } else if(this.number == -1){
+        if(this.number == -1){
             return "99";
         } else {
             return String.valueOf(this.number);
@@ -38,10 +44,6 @@ public class Bottle {
     }
 
     String action() {
-        if(this.number == 0) {
-            return "Go to the store and buy some more,";
-        } else {
-            return "Take " + pronoun() + " down and pass it around,";
-        }
+        return "Take " + pronoun() + " down and pass it around,";
     }
 }
