@@ -3,7 +3,9 @@ package Song;
 public class Bottle {
     static Bottle factory(int number) {
         if(number == 0) {
-           return new ZeroBottle();
+            return new ZeroBottle();
+        }else if(number == 1) {
+            return new OneBottle();
         } else {
             return new Bottle(number);
         }
@@ -20,19 +22,11 @@ public class Bottle {
     }
 
     String containers() {
-        if(this.number == 1) {
-            return "bottle";
-        } else {
-            return "bottles";
-        }
+        return "bottles";
     }
 
     String pronoun() {
-        if(this.number == 1) {
-            return "it";
-        } else {
-            return "one";
-        }
+        return "one";
     }
 
     String remaining() {
