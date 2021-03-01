@@ -11,6 +11,14 @@ public class Bottle {
         }
     }
 
+    static Bottle successor(int number) {
+        if(number == 0){
+            return factory(99);
+        } else {
+            return factory(number - 1);
+        }
+    }
+
     static String capitalize(String remaining) {
         return remaining.substring(0,1).toUpperCase() + remaining.substring(1).toLowerCase();
     }
@@ -30,11 +38,7 @@ public class Bottle {
     }
 
     String remaining() {
-        if(this.number == -1){
-            return "99";
-        } else {
-            return String.valueOf(this.number);
-        }
+        return String.valueOf(this.number);
     }
 
     String action() {

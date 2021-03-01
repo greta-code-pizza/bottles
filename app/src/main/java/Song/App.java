@@ -23,7 +23,7 @@ public class App {
 
     public static String verse(int number) {
         Bottle bottle = Bottle.factory(number);
-        Bottle successor = Bottle.factory(number - 1);
+        Bottle successor = Bottle.successor(number);
 
         if (number >= 0  && number < 100) {
             return
